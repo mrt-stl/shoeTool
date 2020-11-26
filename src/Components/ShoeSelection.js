@@ -5,6 +5,8 @@ const SelectionContainer = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+    flex-wrap: wrap;
+    flex-direction: row;
 `
 const Label = styled.label`
     font-family: Rockwell;
@@ -13,15 +15,17 @@ const Label = styled.label`
 
 const Selection = styled.div`
     flex-basis: 50%;
-    max-width; 50%;
+    max-width: 50%;
     text-align: center;
     background: white;
     color: gray;
     font-size: 22px;
+    
 
     @media only screen and (max-width: 768px) {
         flex-basis: 100%;
-    max-width; 100%;
+        max-width: 100%;
+        margin-bottom: 50px;
     }
 `
 
@@ -105,7 +109,7 @@ export default class ShoeSelection extends Component {
                     </Select>
                 </Selection>
                 <Selection>
-                    <Label for="shoes">Wähle einen Vergleichsschuh</Label>
+                    <Label for="shoes">... und einen Vergleichsschuh</Label>
                     <Select
                         name="shoes"
                         id="shoe2"

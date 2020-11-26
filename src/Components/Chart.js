@@ -38,7 +38,7 @@ export default class Chart extends Component {
                     motionConfig="wobbly"
                     isInteractive={true}
                     theme={{
-                        fontSize: 16,
+                        fontSize: 14,
                         fontFamily: "Rockwell"
                     }}
                     legends={[
