@@ -1,0 +1,42 @@
+[
+    {
+      "attribute": "Grip",
+      "HOKA Clifton Edge": 6,
+      "On Cloudesurfer": 5,
+      "HOKA Speedgoat 4 GTX": 10,
+      "Asics Gel Cumulus": 7,
+      "HOKA Carbon X": 7
+    },
+    {
+      "attribute": "Geschwindigkeit",
+      "HOKA Clifton Edge": 7,
+      "On Cloudesurfer": 8,
+      "HOKA Speedgoat 4 GTX": 5,
+      "Asics Gel Cumulus": 6,
+      "HOKA Carbon X": 10
+    },
+    {
+      "attribute": "Gewicht",
+      "HOKA Clifton Edge": 8,
+      "On Cloudesurfer": 5,
+      "HOKA Speedgoat 4 GTX": 7,
+      "Asics Gel Cumulus": 6,
+      "HOKA Carbon X": 9
+    },
+    {
+      "attribute": "Aussehen",
+      "HOKA Clifton Edge": 8,
+      "On Cloudesurfer": 6,
+      "HOKA Speedgoat 4 GTX": 6,
+      "Asics Gel Cumulus": 4,
+      "HOKA Carbon X": 7
+    },
+    {
+      "attribute": "Dämpfung",
+      "HOKA Clifton Edge": 7,
+      "On Cloudesurfer": 4,
+      "HOKA Speedgoat 4 GTX": 9,
+      "Asics Gel Cumulus": 6,
+      "HOKA Carbon X": 8
+    }
+  ]
