@@ -9,7 +9,6 @@ const SelectionContainer = styled.div`
     flex-direction: row;
 `
 const Label = styled.label`
-    font-family: Rockwell;
     display: block;
 `
 
@@ -77,20 +76,15 @@ export default class ShoeSelection extends Component {
     constructor(props) {
         super(props)
         this.state = {}
-        this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(e) {
-        e.target.id === "shoe1"
-            ? this.setState({ shoe1: e.target.value })
-            : this.setState({ shoe2: e.target.value })
-    }
+
 
     render() {
         return (
             <SelectionContainer>
                 <Selection>
-                    <Label htmlFor="shoes">Wähle einen Schuh</Label>
+                    <Label>Wähle einen Schuh</Label>
                     <Select
                         name="shoes"
                         id="shoe1"
@@ -109,7 +103,7 @@ export default class ShoeSelection extends Component {
                     </Select>
                 </Selection>
                 <Selection>
-                    <Label for="shoes">... und einen Vergleichsschuh</Label>
+                    <Label>... und einen Vergleichsschuh</Label>
                     <Select
                         name="shoes"
                         id="shoe2"

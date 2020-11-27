@@ -5,7 +5,6 @@ const TitleContainer = styled.div`
 margin-top: 150px;
 margin-bottom: 100px;
     width: 100%;
-    font-family: Rockwell;
 
     h1 {
         font-size: 90px;
