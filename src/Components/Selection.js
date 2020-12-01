@@ -1,10 +1,20 @@
 import React, { Component } from "react"
+import styled from "styled-components"
 // import Chart from "./Chart"
 import ChartNew from "./ChartNew"
 import ShoeSelection from "./ShoeSelection"
 import CarbonX from "../data/HokaOneOneCarbonX.json"
 import SpeedGoat4GTX from "../data/HokaOneOneSpeedGoat4GTX.json"
+import CliftonEdge from "../data/HokaOneOneCliftonEdge.json"
+import GelCumulus from "../data/AsicsGelCumulus.json"
 import OnRunningCloudsurfer from "../data/OnRunningClodsurfer.json"
+
+const SelectionContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+`
 
 export default class Selection extends Component {
     constructor(props) {
@@ -13,7 +23,13 @@ export default class Selection extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    shoeData = [CarbonX, SpeedGoat4GTX, OnRunningCloudsurfer]
+    shoeData = [
+        CarbonX,
+        SpeedGoat4GTX,
+        OnRunningCloudsurfer,
+        CliftonEdge,
+        GelCumulus,
+    ]
 
     getShoesArr = (data) => {
         const shoeArr = []
@@ -47,10 +63,21 @@ export default class Selection extends Component {
 
     render() {
         return (
-            <div>
+            <SelectionContainer>
                 <ShoeSelection
                     shoes={this.state.shoes}
                     passChange={this.handleChange}
+                    selectionId="shoe1"
+                    title="Wähle einen Schuh"
+                    selectedShoeImg={this.state.shoe1Data ? this.state.shoe1Data[this.state.shoe1].image : "https://www.flaticon.com/svg/static/icons/svg/1785/1785348.svg"}
+                />
+
+                <ShoeSelection
+                    shoes={this.state.shoes}
+                    passChange={this.handleChange}
+                    selectionId="shoe2"
+                    title="...und einen Verlgeichsschuh"
+                    selectedShoeImg={this.state.shoe2Data ? this.state.shoe2Data[this.state.shoe2].image : "https://www.flaticon.com/svg/static/icons/svg/1785/1785348.svg"}
                 />
                 {/* <Chart chartKeys={[this.state.shoe1, this.state.shoe2 ? this.state.shoe2 : null]}/> */}
                 <ChartNew
@@ -58,16 +85,32 @@ export default class Selection extends Component {
                     shoe2={this.state.shoe2}
                     shoe1Data={
                         this.state.shoe1
-                            ? this.state.shoe1Data[this.state.shoe1]
-                            : { "Grip": 5, "Aussehen": 7, "Gewicht": 8, "Reaktionsfreudigkeit": 9, "Dämpfung": 7, "Komfort": 7, "Haltbarkeit": 3 }
+                            ? this.state.shoe1Data[this.state.shoe1].review
+                            : {
+                                  Grip: 0,
+                                  Aussehen: 0,
+                                  Gewicht: 0,
+                                  Reaktionsfreudigkeit: 0,
+                                  Dämpfung: 0,
+                                  Komfort: 0,
+                                  Haltbarkeit: 0,
+                              }
                     }
                     shoe2Data={
                         this.state.shoe2
-                            ? this.state.shoe2Data[this.state.shoe2]
-                            : { "Grip": 5, "Aussehen": 7, "Gewicht": 8, "Reaktionsfreudigkeit": 9, "Dämpfung": 7, "Komfort": 7, "Haltbarkeit": 3 }
+                            ? this.state.shoe2Data[this.state.shoe2].review
+                            : {
+                                  Grip: 0,
+                                  Aussehen: 0,
+                                  Gewicht: 0,
+                                  Reaktionsfreudigkeit: 0,
+                                  Dämpfung: 0,
+                                  Komfort: 0,
+                                  Haltbarkeit: 0,
+                              }
                     }
                 />
-            </div>
+            </SelectionContainer>
         )
     }
 }

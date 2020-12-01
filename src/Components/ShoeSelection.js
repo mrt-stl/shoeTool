@@ -1,13 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 
-const SelectionContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
-    flex-wrap: wrap;
-    flex-direction: row;
-`
 const Label = styled.label`
     display: block;
 `
@@ -19,7 +12,6 @@ const Selection = styled.div`
     background: white;
     color: gray;
     font-size: 22px;
-    
 
     @media only screen and (max-width: 768px) {
         flex-basis: 100%;
@@ -69,59 +61,46 @@ const Select = styled.select`
 `
 
 const Option = styled.option`
-    font-weight: normal;
+font-weight: normal;
 `
 
+const ShoeImg = styled.img`
+    height: 100px;
+    object-fit: cover;
+    margin-top: 30px;
+`
 export default class ShoeSelection extends Component {
     constructor(props) {
         super(props)
         this.state = {}
     }
 
-
-
     render() {
         return (
-            <SelectionContainer>
-                <Selection>
-                    <Label>Wähle einen Schuh</Label>
-                    <Select
-                        name="shoes"
-                        id="shoe1"
-                        onChange={this.props.passChange}
-                    >
-                        <Option>Make your choice...</Option>
-                        {this.props.shoes
-                            ? this.props.shoes.map((shoe, index) => {
-                                  return (
-                                      <Option key={index} value={shoe}>
-                                          {shoe}
-                                      </Option>
-                                  )
-                              })
-                            : ""}
-                    </Select>
-                </Selection>
-                <Selection>
-                    <Label>... und einen Vergleichsschuh</Label>
-                    <Select
-                        name="shoes"
-                        id="shoe2"
-                        onChange={this.props.passChange}
-                    >
-                        <Option>Make your choice...</Option>
-                        {this.props.shoes
-                            ? this.props.shoes.map((shoe, index) => {
-                                  return (
-                                      <option key={index} value={shoe}>
-                                          {shoe}
-                                      </option>
-                                  )
-                              })
-                            : ""}
-                    </Select>
-                </Selection>
-            </SelectionContainer>
+            <Selection>
+                <Label>{this.props.title}</Label>
+                <Select
+                    name="shoes"
+                    id={this.props.selectionId}
+                    onChange={this.props.passChange}
+                >
+                    <Option disabled selected hidden>
+                        Make your choice...
+                    </Option>
+                    {this.props.shoes
+                        ? this.props.shoes.map((shoe, index) => {
+                              return (
+                                  <Option key={index} value={shoe}>
+                                      {shoe}
+                                  </Option>
+                              )
+                          })
+                        : ""}
+                </Select>
+                <div>
+                <ShoeImg src={this.props.selectedShoeImg} alt="shoe" />
+                </div>
+            </Selection>
         )
     }
 }
