@@ -1,0 +1,19 @@
+{
+    "Asics Gel Cumulus": {
+        "review": {
+            "Grip": 5,
+            "Aussehen": 4,
+            "Gewicht": 5,
+            "Reaktionsfreudigkeit": 6,
+            "Dämpfung": 5,
+            "Komfort": 7,
+            "Haltbarkeit": 9
+        },
+        "image": "https://cdn.sportshop.com/media/catalog/product/cache/stores/image/1500x1333/9df78eab33525d08d6e5fb8d27136e95/a/s/asics-1011a008-021-5_343225.jpg",
+        "meta": {
+            "Sprengung": "10mm",
+            "Preis": "130€",
+            "gelaufene Kilometer": "700"
+        }
+    }
+}

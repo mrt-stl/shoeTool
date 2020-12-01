@@ -1,11 +1,19 @@
 {
     "Hoka One One Carbon X": {
-        "Grip": 5,
-        "Aussehen": 7,
-        "Gewicht": 8,
-        "Reaktionsfreudigkeit": 9,
-        "Dämpfung": 7,
-        "Komfort": 7,
-        "Haltbarkeit": 3
+        "review": {
+            "Grip": 5,
+            "Aussehen": 7,
+            "Gewicht": 8,
+            "Reaktionsfreudigkeit": 9,
+            "Dämpfung": 7,
+            "Komfort": 7,
+            "Haltbarkeit": 3
+        },
+        "image": "https://www.hokaoneone.eu/dw/image/v2/BCQW_PRD/on/demandware.static/-/Sites-HOKA-EMEA-master/default/dwbd4f52e2/images/white/1102886-NCMO_1.jpg?sw=1110&sh=1141&sm=fit&sfrm=jpg&bgcolor=ffffff",
+        "meta": {
+            "Sprengung": "4mm",
+            "Preis": "180€",
+            "gelaufene Kilometer": "250"
+        }
     }
 }
