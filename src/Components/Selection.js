@@ -8,6 +8,8 @@ import SpeedGoat4GTX from "../data/HokaOneOneSpeedGoat4GTX.json"
 import CliftonEdge from "../data/HokaOneOneCliftonEdge.json"
 import GelCumulus from "../data/AsicsGelCumulus.json"
 import OnRunningCloudsurfer from "../data/OnRunningClodsurfer.json"
+import ShoePlaceholder from "../static/shoePlaceholder.svg"
+import ShoePlaceholder2 from "../static/shoePlaceholder2.svg"
 
 const SelectionContainer = styled.div`
     display: flex;
@@ -69,7 +71,11 @@ export default class Selection extends Component {
                     passChange={this.handleChange}
                     selectionId="shoe1"
                     title="Wähle einen Schuh"
-                    selectedShoeImg={this.state.shoe1Data ? this.state.shoe1Data[this.state.shoe1].image : "https://www.flaticon.com/svg/static/icons/svg/1785/1785348.svg"}
+                    selectedShoeImg={
+                        this.state.shoe1Data
+                            ? this.state.shoe1Data[this.state.shoe1].image
+                            : `${ShoePlaceholder}`
+                    }
                 />
 
                 <ShoeSelection
@@ -77,7 +83,11 @@ export default class Selection extends Component {
                     passChange={this.handleChange}
                     selectionId="shoe2"
                     title="...und einen Verlgeichsschuh"
-                    selectedShoeImg={this.state.shoe2Data ? this.state.shoe2Data[this.state.shoe2].image : "https://www.flaticon.com/svg/static/icons/svg/1785/1785348.svg"}
+                    selectedShoeImg={
+                        this.state.shoe2Data
+                            ? this.state.shoe2Data[this.state.shoe2].image
+                            : `${ShoePlaceholder2}`
+                    }
                 />
                 {/* <Chart chartKeys={[this.state.shoe1, this.state.shoe2 ? this.state.shoe2 : null]}/> */}
                 <ChartNew

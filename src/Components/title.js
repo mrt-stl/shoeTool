@@ -13,7 +13,13 @@ const TitleContainer = styled.div`
         text-align: center;
         position: absolute;
         top: 150px;
-        z-index: 2;
+        z-index: 1;
+
+        @media only screen and (max-width: 768px) {
+            top: 50px;
+            font-size: 45px;
+            top: 150px;
+          }
     }
 
     p {
@@ -24,12 +30,19 @@ const StyledSvg = styled(Background)`
     width: 100%;
     height: auto;
     opacity: 0.4;
-    z-index: 1;
+    z-index: -1;
 
     path {
         stroke-width: ${props => props.strokeWidth}px;
         transition: all 2s linear;
     }
+
+    @media only screen and (max-width: 768px) {
+        height: 50vh;
+        width: auto;
+        transform: scaleY(1.3);
+        margin-bottom: 50px;
+      }
 `
 
 export default class title extends Component {
@@ -55,7 +68,7 @@ export default class title extends Component {
     render() {
         return (
             <TitleContainer>
-                <h1>Shoe-Tool 👟</h1>
+                <h1>Shoe-Tool</h1>
                 <StyledSvg strokeWidth={this.state.strokeWidth} />
             </TitleContainer>
         )

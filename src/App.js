@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
 body {
-  font-family: Rockwell;
+  font-family: Geneva;
   box-sizing: border-box;
   
   ::before, ::after {
