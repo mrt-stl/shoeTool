@@ -73,20 +73,19 @@ export default class ChartNew extends React.Component {
                                 name: this.props.shoe1
                                     ? this.props.shoe1
                                     : "Schuh #1",
-                                symbol: { fill: "tomato", type: "star" },
+                                symbol: { fill: "#f81735", type: "star" },
                             },
                             {
                                 name: this.props.shoe2
                                     ? this.props.shoe2
                                     : "Schuh #2",
-                                symbol: { fill: "gold", type: "star" },
+                                symbol: { fill: "#41ead5", type: "star" },
                             },
                         ]}
                     />
                     <VictoryGroup
-                        colorScale={["tomato", "gold"]}
+                        colorScale={["#f81735", "#41ead5"]}
                         style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
-                        labels={() => `KOMM SCHON!`}
                         labelComponent={<VictoryTooltip />}
                     >
                         {this.state.data
