@@ -89,7 +89,6 @@ export default class Selection extends Component {
                             : `${ShoePlaceholder2}`
                     }
                 />
-                {/* <Chart chartKeys={[this.state.shoe1, this.state.shoe2 ? this.state.shoe2 : null]}/> */}
                 <ChartNew
                     shoe1={this.state.shoe1}
                     shoe2={this.state.shoe2}

@@ -61,7 +61,7 @@ const Select = styled.select`
 `
 
 const Option = styled.option`
-font-weight: normal;
+    font-weight: normal;
 `
 
 const ShoeImg = styled.img`
