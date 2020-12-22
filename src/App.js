@@ -1,3 +1,4 @@
+import AdminButton from "./Components/adminButton"
 import Title from "./Components/title"
 import Selection from "./Components/Selection"
 import { createGlobalStyle } from "styled-components"
@@ -16,9 +17,10 @@ body {
 function App() {
     return (
         <div className="App">
-            <Title />
-            <Selection />
-            <GlobalStyle />
+          <AdminButton/>
+          <Title />
+          <Selection />
+          <GlobalStyle />
         </div>
     )
 }
