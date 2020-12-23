@@ -47,9 +47,13 @@ export default function Login() {
     let { from } = location.state || { from: { pathname: "/" } }
 
     const handleSubmit = () => {
+        try {
         auth.signin(userMail, userPassword, () => {
             history.replace(from)
-        })
+        })}
+        catch (error) {
+            alert(error)
+        }
     }
 
     return auth.user ? (
