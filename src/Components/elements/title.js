@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-import { ReactComponent as Background } from "../static/background.svg"
+import { ReactComponent as Background } from "../../static/background.svg"
 
 const TitleContainer = styled.div`
     width: 100%;
@@ -68,7 +68,7 @@ export default class title extends Component {
     render() {
         return (
             <TitleContainer>
-                <h1>Shoe-Tool</h1>
+                <h1>{this.props.title}</h1>
                 <StyledSvg strokeWidth={this.state.strokeWidth} />
             </TitleContainer>
         )

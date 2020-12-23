@@ -1,15 +1,14 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-// import Chart from "./Chart"
 import ChartNew from "./ChartNew"
 import ShoeSelection from "./ShoeSelection"
-import CarbonX from "../data/HokaOneOneCarbonX.json"
-import SpeedGoat4GTX from "../data/HokaOneOneSpeedGoat4GTX.json"
-import CliftonEdge from "../data/HokaOneOneCliftonEdge.json"
-import GelCumulus from "../data/AsicsGelCumulus.json"
-import OnRunningCloudsurfer from "../data/OnRunningClodsurfer.json"
-import ShoePlaceholder from "../static/shoePlaceholder.svg"
-import ShoePlaceholder2 from "../static/shoePlaceholder2.svg"
+import CarbonX from "../../data/HokaOneOneCarbonX.json"
+import SpeedGoat4GTX from "../../data/HokaOneOneSpeedGoat4GTX.json"
+import CliftonEdge from "../../data/HokaOneOneCliftonEdge.json"
+import GelCumulus from "../../data/AsicsGelCumulus.json"
+import OnRunningCloudsurfer from "../../data/OnRunningClodsurfer.json"
+import ShoePlaceholder from "../../static/shoePlaceholder.svg"
+import ShoePlaceholder2 from "../../static/shoePlaceholder2.svg"
 
 const SelectionContainer = styled.div`
     display: flex;
