@@ -7,6 +7,7 @@ import { useLocation, useHistory, Redirect } from "react-router-dom"
 const LoginContainer = styled.div`
     width: 100%;
     height: 100vh;
+    padding-bottom: 80px;
 `
 
 const Input = styled.input`
@@ -22,7 +23,7 @@ const Label = styled.label`
     width: fit-content;
 `
 
-const Button = styled.button`
+const Button = styled.div`
     display: block;
     margin: 0 auto;
     width: fit-content;
@@ -30,6 +31,13 @@ const Button = styled.button`
     background-color: #f81735;
     border-radius: 5px;
     padding: 5px 20px;
+    cursor: ${props => props.disabled ? "pointer" : "default"};
+    color: white;
+
+    :hover {
+        transform: ${props => props.disabled ? "scale(1.1)" : ""};
+        transition: transform 0.2s linear;
+    }
 `
 
 export default function Login() {
@@ -48,10 +56,10 @@ export default function Login() {
 
     const handleSubmit = () => {
         try {
-        auth.signin(userMail, userPassword, () => {
-            history.replace(from)
-        })}
-        catch (error) {
+            auth.signin(userMail, userPassword, () => {
+                history.replace(from)
+            })
+        } catch (error) {
             alert(error)
         }
     }
@@ -66,7 +74,7 @@ export default function Login() {
     ) : (
         <LoginContainer>
             <Title title="Login" />
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div>
                     <Label htmlFor="userName">E-Mail</Label>
                     <Input
@@ -86,10 +94,8 @@ export default function Login() {
                 </div>
                 <div>
                     <Button
-                        block
-                        bsSize="large"
-                        disabled={!validateFormFields()}
-                        type="submit"
+                        disabled={validateFormFields()}
+                        onClick={handleSubmit}
                     >
                         Login
                     </Button>
