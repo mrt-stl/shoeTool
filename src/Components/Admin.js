@@ -417,7 +417,7 @@ export default function Admin() {
                     ></input>
                 </SingleInput>
 
-                <SubmitButton type="submit" value={selectedShoeData ? "Update" : "Erstellen"}/>
+                <SubmitButton type="reset" onClick={handleSubmit} value={selectedShoeData ? "Update" : "Erstellen"}/>
             </FormContainer>
         </div>
     )
