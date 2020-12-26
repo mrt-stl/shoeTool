@@ -2,10 +2,11 @@ import PublicFE from "./Components/PublicFE"
 import Login from "./Components/Login"
 import Admin from "./Components/Admin"
 import PrivateRoute from "./Components/elements/privatRoute"
-import React from "react";
-import { ProvideAuth } from "./utils/use-auth.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import React from "react"
+import { ProvideAuth } from "./utils/use-auth.js"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import { createGlobalStyle } from "styled-components"
+import { AnimatedSwitch } from "react-router-transition"
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -19,14 +20,19 @@ body {
   `
 
 export default function App() {
-  return (
-    <ProvideAuth>
+    return (
+        <ProvideAuth>
             <GlobalStyle />
 
             <Router>
-                <Switch>
+                <AnimatedSwitch
+                    atEnter={{ opacity: 0 }}
+                    atLeave={{ opacity: 0 }}
+                    atActive={{ opacity: 1 }}
+                    className="switch-wrapper"
+                >
                     <Route path="/login">
-                        <Login/>
+                        <Login />
                     </Route>
 
                     <PrivateRoute path="/admin">
@@ -36,9 +42,8 @@ export default function App() {
                     <Route path="/">
                         <PublicFE />
                     </Route>
-                </Switch>
+                </AnimatedSwitch>
             </Router>
-    </ProvideAuth>
-  );
+        </ProvideAuth>
+    )
 }
-

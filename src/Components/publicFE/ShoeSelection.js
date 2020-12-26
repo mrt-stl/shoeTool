@@ -65,9 +65,9 @@ const Option = styled.option`
 `
 
 const ShoeImg = styled.img`
-    height: 100px;
+    height: ${props => props.fullwidth ? "200px" : "100px"};
     object-fit: cover;
-    margin-top: 30px;
+    margin: ${props => props.fullwidth ? "0px auto 30px auto" : "30px 0px 0px 0px"};
 `
 export default class ShoeSelection extends Component {
     constructor(props) {
@@ -77,30 +77,62 @@ export default class ShoeSelection extends Component {
 
     render() {
         return (
-            <Selection>
-                <Label>{this.props.title}</Label>
-                <Select
-                    name="shoes"
-                    id={this.props.selectionId}
-                    onChange={this.props.passChange}
-                >
-                    <Option disabled selected hidden>
-                        Make your choice...
-                    </Option>
-                    {this.props.shoes
-                        ? this.props.shoes.map((shoe, index) => {
-                              return (
-                                  <Option key={index} value={shoe}>
-                                      {shoe}
-                                  </Option>
-                              )
-                          })
-                        : ""}
-                </Select>
-                <div>
-                <ShoeImg src={this.props.selectedShoeImg} alt="shoe" />
-                </div>
-            </Selection>
+            <>
+                {this.props.fullwidth ? (
+                    <div style={{display: "flex", alignItems: "center"}}>
+                        <Selection>
+                            <Label>{this.props.title}</Label>
+                            <Select
+                                name="shoes"
+                                id={this.props.selectionId}
+                                onChange={this.props.passChange}
+                            >
+                                <Option disabled selected hidden>
+                                    Make your choice...
+                                </Option>
+                                {this.props.shoes
+                                    ? this.props.shoes.map((shoe, index) => {
+                                          return (
+                                              <Option key={index} value={shoe}>
+                                                  {shoe}
+                                              </Option>
+                                          )
+                                      })
+                                    : ""}
+                            </Select>
+                        </Selection>
+                        <ShoeImg src={this.props.selectedShoeImg} fullwidth={this.props.fullwidth} alt="shoe" />
+                    </div>
+                ) : (
+                    <Selection>
+                        <Label>{this.props.title}</Label>
+                        <Select
+                            name="shoes"
+                            id={this.props.selectionId}
+                            onChange={this.props.passChange}
+                        >
+                            <Option disabled selected hidden>
+                                Make your choice...
+                            </Option>
+                            {this.props.shoes
+                                ? this.props.shoes.map((shoe, index) => {
+                                      return (
+                                          <Option key={index} value={shoe}>
+                                              {shoe}
+                                          </Option>
+                                      )
+                                  })
+                                : ""}
+                        </Select>
+                        <div>
+                            <ShoeImg
+                                src={this.props.selectedShoeImg}
+                                alt="shoe"
+                            />
+                        </div>
+                    </Selection>
+                )}
+            </>
         )
     }
 }

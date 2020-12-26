@@ -79,6 +79,7 @@ export default function Admin() {
     const [Kilometer, setKilometer] = useState()
     const [ShoeImage, setShoeImage] = useState()
     const [Name, setName] = useState()
+    const [Nickname, setNickname] = useState()
 
     // const shoeProperties = [
     //     "Gewicht",
@@ -135,6 +136,9 @@ export default function Admin() {
                 break
             case "Name":
                 setName(e.target.value)
+                break
+                case "Nickname":
+                setNickname(e.target.value)
                 break
 
             default:
@@ -217,6 +221,11 @@ export default function Admin() {
                     "Sprengung"
                 ]
             )
+            setNickname(
+                selectedShoeData[Object.keys(selectedShoeData)[0]].meta[
+                    "Nickname"
+                ]
+            )
             setShoeImage(
                 selectedShoeData[Object.keys(selectedShoeData)[0]].image
             )
@@ -243,16 +252,15 @@ export default function Admin() {
                     Sprengung: Sprengung,
                     Preis: Preis,
                     "gelaufene Kilometer": Kilometer,
+                    Nickname: Nickname,
                 },
             })
+            window.alert("Update durchgeführt!")
     }
 
-    const handleReset = () => {
-        setSelectedShoeData(false)
-        setName("")
-        setShoeImage("")
-        setGewicht(5)
-    }
+    // const handleReset = () => {
+    //     setSelectedShoeData(false)
+    // }
 
     return (
         <div>
@@ -263,6 +271,7 @@ export default function Admin() {
                 passChange={handleSelectionChange}
                 selectionId="shoe1"
                 title="Wähle einen Schuh"
+                fullwidth={true}
                 selectedShoeImg={
                     selectedShoeData
                         ? selectedShoeData[Object.keys(selectedShoeData)[0]]
@@ -270,8 +279,18 @@ export default function Admin() {
                         : `${ShoePlaceholder}`
                 }
             />
-            <button onClick={handleReset}>Reset</button>
             <FormContainer onSubmit={handleSubmit}>
+                
+            <SingleInput>
+                    <label HtmlFor="Nickname">Nickname:</label>
+                    <input
+                        onChange={handleValueChange}
+                        value={selectedShoeData ? Nickname : null}
+                        type="text"
+                        id="Nickname"
+                    ></input>
+                </SingleInput>
+
                 <SingleInput>
                     <label HtmlFor="Name">Name:</label>
                     <input
