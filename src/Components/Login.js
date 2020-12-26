@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import Title from "./elements/title"
+import AdminButton from "./elements/adminButton"
 import { useAuth } from "../utils/use-auth"
 import { useLocation, useHistory, Redirect } from "react-router-dom"
 
@@ -73,6 +74,7 @@ export default function Login() {
         />
     ) : (
         <LoginContainer>
+            <AdminButton title="Home" link="/"/>
             <Title title="Login" />
             <form>
                 <div>
