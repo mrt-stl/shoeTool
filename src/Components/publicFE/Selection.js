@@ -9,6 +9,7 @@ import GelCumulus from "../../data/AsicsGelCumulus.json"
 import OnRunningCloudsurfer from "../../data/OnRunningClodsurfer.json"
 import ShoePlaceholder from "../../static/shoePlaceholder.svg"
 import ShoePlaceholder2 from "../../static/shoePlaceholder2.svg"
+import firebase from "firebase"
 
 const SelectionContainer = styled.div`
     display: flex;
@@ -41,10 +42,21 @@ export default class Selection extends Component {
     }
 
     componentDidMount() {
-        const shoes = this.getShoesArr(this.shoeData)
-        this.setState({
-            shoes: shoes,
-            shoeData: this.shoeData,
+        const database = firebase.database().ref().child("shoes")
+
+        database.on("value", (snap) => {
+            const data = snap.val()
+            const shoeArr = Object.keys(data)
+            const ShoeData = []
+            shoeArr.map((shoe) => {
+                const obj = {}
+                obj[shoe] = data[shoe]
+                return ShoeData.push(obj)
+            })
+            this.setState({
+                shoeData: ShoeData,
+                shoes: shoeArr,
+            })
         })
     }
 
