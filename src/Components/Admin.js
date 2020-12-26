@@ -31,6 +31,7 @@ const SingleInput = styled.div`
     max-width: 50%;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 30px;
 
     label {
         flex-basis: 80%;
@@ -43,7 +44,7 @@ const SingleInput = styled.div`
 `
 
 const SubmitButton = styled.input`
-margin: 50px auto;
+    margin: 50px auto;
     font-size: 24px;
     background-color: #f81735;
     border-radius: 5px;
@@ -274,6 +275,16 @@ export default function Admin() {
                 </SingleInput>
 
                 <SingleInput>
+                    <label HtmlFor="ShoeImage">Bild-URL:</label>
+                    <input
+                        onChange={handleValueChange}
+                        value={selectedShoeData ? ShoeImage : null}
+                        type="text"
+                        id="ShoeImage"
+                    ></input>
+                </SingleInput>
+
+                <SingleInput>
                     <label HtmlFor="Gewicht">Gewicht: {Gewicht}</label>
                     <input
                         onChange={handleValueChange}
@@ -366,7 +377,7 @@ export default function Admin() {
                 </SingleInput>
 
                 <SingleInput>
-                    <label HtmlFor="Preis">Preis: {Preis}</label>
+                    <label HtmlFor="Preis">Preis: {Preis}€</label>
                     <input
                         onChange={handleValueChange}
                         value={selectedShoeData ? Preis : null}
@@ -380,7 +391,7 @@ export default function Admin() {
 
                 <SingleInput>
                     <label HtmlFor="Kilometer">
-                        gelaufene Kilometer: {Kilometer}
+                        gelaufene Kilometer: {Kilometer}km
                     </label>
                     <input
                         onChange={handleValueChange}
@@ -394,7 +405,7 @@ export default function Admin() {
                 </SingleInput>
 
                 <SingleInput>
-                    <label HtmlFor="Sprengung">Sprengung: {Sprengung}</label>
+                    <label HtmlFor="Sprengung">Sprengung: {Sprengung}mm</label>
                     <input
                         onChange={handleValueChange}
                         value={selectedShoeData ? Sprengung : null}
@@ -406,17 +417,7 @@ export default function Admin() {
                     ></input>
                 </SingleInput>
 
-                <SingleInput>
-                    <label HtmlFor="ShoeImage">Bild-URL:</label>
-                    <input
-                        onChange={handleValueChange}
-                        value={selectedShoeData ? ShoeImage : null}
-                        type="text"
-                        id="ShoeImage"
-                    ></input>
-                </SingleInput>
-
-                <SubmitButton type="submit" />
+                <SubmitButton type="submit" value={selectedShoeData ? "Update" : "Erstellen"}/>
             </FormContainer>
         </div>
     )
