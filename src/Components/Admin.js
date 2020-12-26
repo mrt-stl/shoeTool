@@ -247,6 +247,13 @@ export default function Admin() {
             })
     }
 
+    const handleReset = () => {
+        setSelectedShoeData(false)
+        setName("")
+        setShoeImage("")
+        setGewicht(5)
+    }
+
     return (
         <div>
             <Logout onClick={handleClick}>Logout</Logout>
@@ -263,6 +270,7 @@ export default function Admin() {
                         : `${ShoePlaceholder}`
                 }
             />
+            <button onClick={handleReset}>Reset</button>
             <FormContainer onSubmit={handleSubmit}>
                 <SingleInput>
                     <label HtmlFor="Name">Name:</label>
